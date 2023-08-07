@@ -1,0 +1,35 @@
+.cardprofesional {
+    padding-top: 0.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 250px;
+    height: 270px;
+    background-color: rgb(40, 39, 39);
+    overflow: hidden;
+    color: white;
+    border-radius: 5px;
+    gap: 2px;
+    transition: transform 0.25s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+  }
+  
+  .imgProfesionales {
+    width:90%;
+    height: 65%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.turnosEspecialidad {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
