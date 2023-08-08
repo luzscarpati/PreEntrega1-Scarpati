@@ -4,8 +4,8 @@ const CartWidget = () => {
       <i>
       <img src="./src/components/CartWidget/CartWidgetImg/shoppingBag.png" alt="Cart"  width="60" height="54" />
       </i>
-      <span class="badge text-bg-secondary">1</span>
-      <span class="visually-hidden">Turnos en cart</span>
+      <span className="badge text-bg-secondary">1</span>
+      <span className="visually-hidden">Turnos en cart</span>
     </button>
     
     /*<div>
