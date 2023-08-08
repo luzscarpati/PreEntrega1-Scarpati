@@ -7,11 +7,6 @@ const CartWidget = () => {
       <span className="badge text-bg-secondary">1</span>
       <span className="visually-hidden">Turnos en cart</span>
     </button>
-    
-    /*<div>
-     
-     <span>1</span>
-    </div>*/
   );
 };
 
