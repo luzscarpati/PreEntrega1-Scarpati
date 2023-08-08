@@ -3,8 +3,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 const App = () => {
  return (
  <div>
-  {/*NavBar*/}
-  {/*ItemListContainer*/}
+  <NavBar/>
+  <ItemListContainer greeting ="Mirá los turnos disponibles"/>
  </div>  
  );
 };
