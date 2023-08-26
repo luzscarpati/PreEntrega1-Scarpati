@@ -4,7 +4,7 @@ const App = () => {
  return (
  <div>
   <NavBar/>
-  <ItemListContainer greeting ="Mirá los turnos disponibles"/>
+  <ItemListContainer greeting ="Mirá nuestros productos"/>
  </div>  
  );
 };
