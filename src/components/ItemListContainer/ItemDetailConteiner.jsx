@@ -1,10 +1,10 @@
 
-const ItemListContainer = () => {
+const ItemDetailContainer = () => {
     return (
         <div>
-            <h2>ItemListContainer</h2>
+            <h2>ItemDetailContainer</h2>
         </div>
     );
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;
