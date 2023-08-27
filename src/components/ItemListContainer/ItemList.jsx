@@ -1,5 +1,5 @@
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const ItemList = ({ list, isLoading}) => {
     if(isLoading) {
