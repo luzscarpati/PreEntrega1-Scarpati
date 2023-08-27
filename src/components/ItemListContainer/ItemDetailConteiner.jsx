@@ -1,20 +1,20 @@
 import { getProduct } from "../../services";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(null);
-    const {id} = useParams();
+    const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() =>{
+    useEffect(() => {
         getProduct(id)
-        .then((response) => {setItem(response)})
-        .catch(() => {setItem(null)})
-        .finally(() => {setIsLoading(false)})
+            .then((response) => { setItem(response) })
+            .catch(() => { setItem(null) })
+            .finally(() => { setIsLoading(false) })
 
-    },[id]);
+    }, [id]);
 
     return (
         <div>

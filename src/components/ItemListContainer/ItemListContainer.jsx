@@ -3,25 +3,25 @@ import { useParams } from 'react-router-dom';
 import { getProducts } from "../../services";
 import ItemList from "./ItemList";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
   const [list, setList] = useState([]);
-  const {categoryId} = useParams();
+  const { categoryId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() =>{
-      setIsLoading(true);
-      getProducts(categoryId).then((response) =>{
-        setList(response);
-        setIsLoading(false);
-      });
+  useEffect(() => {
+    setIsLoading(true);
+    getProducts(categoryId).then((response) => {
+      setList(response);
+      setIsLoading(false);
+    });
   }, [categoryId])
 
- return (
+  return (
     <div>
       <h2 className="text-center w-100">{greeting}</h2>
-      <ItemList list={list} isLoading={isLoading}/>
-    </div> 
-  )   
+      <ItemList list={list} isLoading={isLoading} />
+    </div>
+  )
 };
 
 export default ItemListContainer;
