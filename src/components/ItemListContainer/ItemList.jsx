@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import styles from "./ItemList.module.css";
 import { Link } from 'react-router-dom';
 
 const ItemList = ({ list, isLoading}) => {
@@ -12,17 +11,17 @@ const ItemList = ({ list, isLoading}) => {
 </div>
         )};
     return (
-        <div className={styles.cardContainer}>
+        <div>
         <ul className='list-unstyled d-flex flex-wrap justify-content-center'>
             {list.map((item) => (
-                <li key={item.id} className={`card col-md-3 mb-4 mx-2 ${styles.card}`}>
+                <li key={item.id} className={`card col-md-3 mb-4 mx-2`}>
                     <img src={item.img} alt={item.name} className='card-img-top item-image' />
                     <div className='card-body'>
                         <h3 className='card-title'>{item.name}</h3>
                         <p className='card-text'>Precio: ${item.price}</p>
                         <p className='card-text'>Categoría: {item.category}</p>
                         <Link to={`/item/${item.id}`}>
-                        <button className='btn btn-primary'> Detalles </button>
+                        <button className='btn btn-success'>Detalles</button>
                         </Link>
                     </div>
                 </li>
