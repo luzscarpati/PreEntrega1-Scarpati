@@ -1,7 +1,16 @@
 import propTypes from 'prop-types';
 import styles from "./ItemList.module.css";
+import { Link } from 'react-router-dom';
 
-const ItemList = ({ list }) => {
+const ItemList = ({ list, isLoading}) => {
+    if(isLoading) {
+        return (
+            <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
+    <div className="spinner-border text-success" role="status" style={{ width: '4rem', height: '4rem', marginTop: '-20px' }}>
+        <span className="visually-hidden">Loading...</span>
+    </div>
+</div>
+        )};
     return (
         <div className={styles.cardContainer}>
         <ul className='list-unstyled d-flex flex-wrap justify-content-center'>
@@ -12,6 +21,9 @@ const ItemList = ({ list }) => {
                         <h3 className='card-title'>{item.name}</h3>
                         <p className='card-text'>Precio: ${item.price}</p>
                         <p className='card-text'>Categoría: {item.category}</p>
+                        <Link to={`/item/${item.id}`}>
+                        <button className='btn btn-primary'> Detalles </button>
+                        </Link>
                     </div>
                 </li>
             ))}
@@ -22,6 +34,7 @@ const ItemList = ({ list }) => {
 
 ItemList.propTypes = {
     list: propTypes.array.isRequired,
+    isLoading: propTypes.bool,
 }
 
 export default ItemList;

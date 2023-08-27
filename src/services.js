@@ -141,14 +141,13 @@ export const products = [
     });
   };
 
-    export const getProducts = (category) => {
-    return new Promise ((resolve) => {
-        setTimeout(() =>{
-           const productFiltered = category
-           ? products.filter(product => product.category === category)
-           : products;
-
-           resolve(productFiltered);
-        });
-    }, 1000)
+  export const getProducts = (category) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {  
+        const productsFiltered = category
+          ? products.filter((product) => product.category === category)
+          : products;
+        resolve(productsFiltered);
+      }, 1000);
+    });
   };
