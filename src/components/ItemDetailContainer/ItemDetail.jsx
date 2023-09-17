@@ -42,6 +42,7 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
 ItemDetail.propTypes = {
   item: PropTypes.object,
   isLoading: PropTypes.bool,
+  addItem: PropTypes.func,
 }
 
 export default ItemDetail;
