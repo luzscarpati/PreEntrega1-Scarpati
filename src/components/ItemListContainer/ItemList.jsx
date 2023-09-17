@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore, query, limit } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, } from "firebase/firestore";
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 

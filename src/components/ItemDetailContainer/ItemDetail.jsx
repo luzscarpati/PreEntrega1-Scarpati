@@ -1,29 +1,7 @@
-import { useEffect, useState } from "react";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
 import PropTypes from 'prop-types';
 
-const ItemDetail = () => {
-  const [item, setItem] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const db = getFirestore();
-    const itemRef = doc(db, "products", "1");
-
-    setIsLoading(true);
-    getDoc(itemRef).then((snapshot) => {
-      setIsLoading(false);
-
-      if (snapshot.exists()) {
-        setItem({
-          id: snapshot.id,
-          ...snapshot.data(),
-        });
-      }
-    });
-  }, []);
-
-  if (isLoading) {
+const ItemDetail = ({ item, isLoading, addItem }) => {
+   if (isLoading) {
     return (
       <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
         <div className="spinner-border text-success" role="status" style={{ width: '4rem', height: '4rem', marginTop: '-20px' }}>
@@ -56,6 +34,7 @@ const ItemDetail = () => {
           <p className="card-text">Descripción: {item.description}</p>
           <p className="card-text">Precio: ${item.price}</p>
           <p className="card-text">Stock: {item.stock}</p>
+          <button onClick={() => addItem(item, 1)}>Agregar al carrito</button>
         </div>
       </div>
     </div>
