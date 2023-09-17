@@ -3,6 +3,7 @@ import {
   getDoc,
   collection,
   getDocs,
+  addDoc,
   query,
   where,
   getFirestore,
@@ -48,4 +49,10 @@ export const getProducts = (categoryId) => {
         reject(error);
       });
   });
+};
+
+export const createOrder = (orden) => {
+  const db = getFirestore();
+  const ordersCollection = collection(db, "orders");
+  return addDoc(ordersCollection, orden);
 };
