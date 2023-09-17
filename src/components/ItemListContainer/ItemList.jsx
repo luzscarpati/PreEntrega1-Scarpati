@@ -1,26 +1,7 @@
-import { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore, query, } from "firebase/firestore";
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 
-const ItemList = () => {
-    const [items, setItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        const db = getFirestore();
-        const itemCollection = collection(db, "products");
-        setIsLoading(true);
-        const q = query(itemCollection);
-        getDocs(q).then((snapshot) => {
-            const itemsFromSnapshot = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setItems(itemsFromSnapshot);
-            setIsLoading(false);
-        });
-    }, []);
+const ItemList = ({ items, isLoading }) => {
     if (isLoading) {
         return (
             <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
@@ -51,7 +32,7 @@ const ItemList = () => {
     );
 };
 ItemList.propTypes = {
-    list: propTypes.array.isRequired,
+    items: propTypes.array.isRequired,
     isLoading: propTypes.bool,
 }
 

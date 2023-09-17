@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from '../../services';
+import { getProducts } from "../../services";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
@@ -15,13 +15,7 @@ const ItemListContainer = () => {
       setIsLoading(false);
     });
   }, [categoryId]);
-
-  return (
-    <div>
-      <h2 className="text-center w-100">Mira todos los productos</h2>
-      <ItemList list={items} isLoading={isLoading} />
-    </div>
-  )
+  return <ItemList items={items} isLoading={isLoading} />;
 };
 
 export default ItemListContainer;

@@ -21,7 +21,6 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
     )
   };
 
-
   return (
     <div className="container">
       <hr/>
@@ -34,7 +33,7 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
           <p className="card-text">Descripción: {item.description}</p>
           <p className="card-text">Precio: ${item.price}</p>
           <p className="card-text">Stock: {item.stock}</p>
-          <button onClick={() => addItem(item, 1)}>Agregar al carrito</button>
+          <button className='btn btn-success' onClick={() => addItem(item, 1)}>Agregar al carrito</button>
         </div>
       </div>
     </div>
