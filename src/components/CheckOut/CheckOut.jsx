@@ -14,7 +14,8 @@ const CheckOut = () => {
     phone: "",
     email: "",
   });
-
+  const isFormComplete = buyerInfo.name && buyerInfo.email && buyerInfo.phone;
+  const isCartEmpty = cart.length === 0;
   const sendDataToCheckout = (data) => {
     setBuyerInfo({
       name: data.name,
@@ -68,7 +69,7 @@ const CheckOut = () => {
 
           <span>Total de la compra: ${getCartTotal(cart)}</span>
 
-          <button onClick={handleCheckOut}>Realizar Compra</button>
+          <button onClick={handleCheckOut} disabled={isCartEmpty || !isFormComplete}>Realizar Compra</button>
         </div>
       )}
     </div>

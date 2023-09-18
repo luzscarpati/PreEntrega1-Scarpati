@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Field from './Field';
 
-const BuyerInfoForm = ({ sendDataToCheckout }) => { // Asegúrate de recibir sendDataToCheckout como prop
+const BuyerInfoForm = ({ sendDataToCheckout }) => {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -21,12 +21,9 @@ const BuyerInfoForm = ({ sendDataToCheckout }) => { // Asegúrate de recibir sen
     event.preventDefault();
 
     if (isFormValid) {
-      console.log(`${name} ${email}${phone}`);
-      // Llama a sendDataToCheckout para enviar los datos al componente CheckOut
       sendDataToCheckout({ name, email, phone });
     }
   };
-
   return (
     <div>
       <h1>Ingresa tus datos para completar la compra</h1>
