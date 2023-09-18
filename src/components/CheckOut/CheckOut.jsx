@@ -9,6 +9,7 @@ import styles from './CheckOut.module.css'
 
 const CheckOut = () => {
   const [orderId, setOrderId] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { cart, clear } = useContext(CartContext);
   const [buyerInfo, setBuyerInfo] = useState({
     name: "",
@@ -26,6 +27,8 @@ const CheckOut = () => {
   };
 
   const handleCheckOut = () => {
+    setLoading(true);
+
     const order = {
       buyer: {
         name: buyerInfo.name,
@@ -40,14 +43,22 @@ const CheckOut = () => {
       .then((docRef) => {
         setOrderId(docRef.id);
         clear();
+        setLoading(false);
       });
   };
 
   return (
     <div className="container justify-content-center">
       <h5 className="d-block mb-3">Resumen de la compra</h5>
-      {orderId && <p>El Número de la compra es: {orderId}</p>}
-      {!orderId && (
+      {loading && (
+      <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
+        <div className="spinner-border text-success" role="status" style={{ width: '4rem', height: '4rem', marginTop: '-20px' }}>
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    )}
+      {orderId && !loading && <p>El Número de la compra es: {orderId}</p>}
+      {!orderId && !loading && (
         <div>
           <BuyerInfoForm
             buyerInfo={buyerInfo}
@@ -79,4 +90,5 @@ const CheckOut = () => {
 };
 
 export default CheckOut;
+
 
