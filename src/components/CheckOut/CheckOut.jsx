@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import BuyerInfoForm from '../BuyerForm/BuyerInfoForm'
 import CartContext from "../../context/CartContext";
-import { getCartTotal } from "../../../../utils";
+import { getCartTotal } from "../../utils";
 import { serverTimestamp } from 'firebase/firestore';
-import { mapCartToOrderItems } from "../../../../utils";
+import { mapCartToOrderItems } from "../../utils";
 import { createOrder } from "../../services";
 import styles from './CheckOut.module.css'
 

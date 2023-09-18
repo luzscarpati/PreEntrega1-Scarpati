@@ -1,7 +1,7 @@
 import CartContext from '../../context/CartContext';
 import cartImg from './cartWidgetImg/shoppingBag.png';
 import { useContext } from 'react';
-import { getCartQuantity } from '../../../../utils';
+import { getCartQuantity } from '../../utils';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
