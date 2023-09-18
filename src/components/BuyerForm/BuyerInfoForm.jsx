@@ -26,14 +26,14 @@ const BuyerInfoForm = ({ sendDataToCheckout }) => {
   };
   return (
     <div>
-      <h1>Ingresa tus datos para completar la compra</h1>
+      <h6>Ingresa tus datos para completar la compra</h6>
 
       <form onSubmit={onSubmit}>
         <Field label="Nombre" name="name" onChange={onChange} />
         <Field label="Email" name="email" onChange={onChange} />
         <Field label="Teléfono" name="phone" onChange={onChange} />
 
-        <button disabled={!isFormValid} type="submit">
+        <button disabled={!isFormValid} type="submit" className='btn btn-success'>
           Enviar datos
         </button>
       </form>

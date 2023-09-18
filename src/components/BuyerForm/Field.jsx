@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import styles from "./Field.module.css";
 
 const Field = ({ label, name, onChange }) => {
   return (
-    <div>
-      <label>{label}</label>
+    <div className={`${styles.formControl}`}>
+      <label className={styles.label}>{label}</label>
       <input name={name} type="text" onChange={onChange} />
     </div>
   );
