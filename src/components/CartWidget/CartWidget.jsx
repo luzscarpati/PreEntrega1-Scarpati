@@ -15,14 +15,4 @@ const CartWidget = () => {
       <span className="visually-hidden">Productos en carrito</span>
     </div>
   )};
-
-/*     <button className="btn btn-outline">
-      <i>
-        <img src={cartImg} alt="Cart" width="60" height="54" />
-      </i>
-      <span className="badge text-bg-secondary">1</span>
-      <span className="visually-hidden">Productos en carrito</span>
-    </button> */
-
-
 export default CartWidget;
