@@ -12,23 +12,25 @@ const ItemList = ({ items, isLoading }) => {
         )
     };
     return (
-        <div>
-            <ul className='list-unstyled d-flex flex-wrap justify-content-center'>
-                {items.map((item) => (
-                    <li key={item.id} className={`card col-md-3 mb-4 mx-2`}>
-                        <img src={item.img} alt={item.name} className='card-img-top item-image'/>
-                        <div className='card-body'>
-                            <h6 className='card-title'>Nombre: {item.name}</h6>
-                            <p className='card-text'>Categoría: {item.category}</p>
-                            <p className='card-text'>Precio: ${item.price}</p>
-                        <Link to={`/item/${item.id}`}>
-                                <button className='btn btn-success'>Detalles</button>
-                        </Link>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+        <div> <h4>Mira nuestros Productos</h4>
+        <hr/>
+  <ul className="list-unstyled d-flex flex-wrap justify-content-center">
+    {items.map((item) => (
+      <li key={item.id} className={`card col-md-3 col-sm-6 mb-4 mx-2`}>
+        <img src={item.img} alt={item.name} className="card-img-top item-image" />
+        <div className="card-body">
+          <h6 className="card-title">Nombre: {item.name}</h6>
+          <p className="card-text">Categoría: {item.category}</p>
+          <p className="card-text">Precio: ${item.price}</p>
+          <Link to={`/item/${item.id}`}>
+            <button className="btn btn-success">Detalles</button>
+          </Link>
         </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
     );
 };
 ItemList.propTypes = {
