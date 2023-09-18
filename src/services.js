@@ -56,3 +56,4 @@ export const createOrder = (orden) => {
   const ordersCollection = collection(db, "orders");
   return addDoc(ordersCollection, orden);
 };
+
