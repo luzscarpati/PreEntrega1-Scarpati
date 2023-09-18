@@ -9,8 +9,7 @@ import styles from './CheckOut.module.css'
 
 const CheckOut = () => {
   const [orderId, setOrderId] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const { cart, clear } = useContext(CartContext);
+  const { cart, clear, removeItem } = useContext(CartContext);
   const [buyerInfo, setBuyerInfo] = useState({
     name: "",
     phone: "",
@@ -27,8 +26,6 @@ const CheckOut = () => {
   };
 
   const handleCheckOut = () => {
-    setLoading(true);
-
     const order = {
       buyer: {
         name: buyerInfo.name,
@@ -43,29 +40,32 @@ const CheckOut = () => {
       .then((docRef) => {
         setOrderId(docRef.id);
         clear();
-        setLoading(false);
       });
+  };
+
+  const handleRemoveItem = (itemId) => {
+    const product = cart.find((item) => item.id === itemId);
+    if (product) {
+      if (product.quantity > 1) {
+        product.quantity -= 1;
+      } else {
+        removeItem(itemId);
+      }
+    }
   };
 
   return (
     <div className="container justify-content-center">
       <h5 className="d-block mb-3">Resumen de la compra</h5>
-      {loading && (
-      <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
-        <div className="spinner-border text-success" role="status" style={{ width: '4rem', height: '4rem', marginTop: '-20px' }}>
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    )}
-      {orderId && !loading && <p>El Número de la compra es: {orderId}</p>}
-      {!orderId && !loading && (
+      {orderId && <p>El Número de la compra es: {orderId}</p>}
+      {!orderId && (
         <div>
           <BuyerInfoForm
             buyerInfo={buyerInfo}
             setBuyerInfo={setBuyerInfo}
             sendDataToCheckout={sendDataToCheckout}
           />
-        <hr/>
+          <hr />
           <h6>Productos en el carrito:</h6>
           <ul className='justify-content-center'>
             {cart.map((item) => (
@@ -74,6 +74,12 @@ const CheckOut = () => {
                 <p>Cantidad: {item.quantity}</p>
                 <p>Precio por unidad: ${item.price}</p>
                 <p>Subtotal: ${item.price * item.quantity}</p>
+                <button
+                  onClick={() => handleRemoveItem(item.id)}
+                  className="btn btn-danger"
+                >
+                  Eliminar
+                </button>
                 <hr className={styles["short-hr"]}/>
                 <hr/>
               </li>
@@ -90,5 +96,10 @@ const CheckOut = () => {
 };
 
 export default CheckOut;
+
+
+
+
+
 
 
