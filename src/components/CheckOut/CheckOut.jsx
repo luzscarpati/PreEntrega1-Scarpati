@@ -9,7 +9,7 @@ import styles from './CheckOut.module.css'
 
 const CheckOut = () => {
   const [orderId, setOrderId] = useState(null);
-  const [loading, setLoading] = useState(false); // Inicialmente, el loading está desactivado
+  const [loading, setLoading] = useState(false);
   const { cart, clear, removeItem } = useContext(CartContext);
   const [buyerInfo, setBuyerInfo] = useState({
     name: "",
